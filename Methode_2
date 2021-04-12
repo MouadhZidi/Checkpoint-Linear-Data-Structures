@@ -1,0 +1,19 @@
+htab : HASH_TABLE<integer,integer>;
+set1,set2: array[];
+count,sum:integer;
+read(set1);read(set2);
+set3:=concat(set1,set2);
+for i from 0 to set3.length  do 
+     IF (htab.lookup(set3[i] = true) then
+      count := htab.get(set3[i]);
+      htab.insert(set3[i],count+1);
+   else 
+htab.insert(set3[i],1);
+end_if
+end_for
+for i from 0 to set3.length do
+if (htab.get(set3[i]=1) then
+ sum+=set3[i];
+end_if
+end_for
+write(sum);
